@@ -3,12 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <title>Reisebuchungs-Formular</title>
-
 </head>
 <body>
 
 <h1>Reisebuchungs-Formular</h1>
+<form action="https://it.bzz.ch/demo/formdata/index.php" method="post">
+  <fieldset>
+    <legend>Reiseinformationen</legend>
+    <label for="departure-airport">Abflughafen:</label>
+    <select id="departure-airport" name="departureAirport" required>
+      <optgroup label="Deutschland">
+        <option value="Berlin Tegel">Berlin Tegel</option>
+        <option value="Frankfurt am Main">Frankfurt am Main</option>
+        <option value="München">München</option>
+      </optgroup>
+      <optgroup label="Österreich">
+        <option value="Wien">Wien</option>
+        <option value="Salzburg">Salzburg</option>
+        <option value="Innsbruck">Innsbruck</option>
+      </optgroup>
+      <optgroup label="Italien">
+        <option value="Mailand Malpensa">Mailand Malpensa</option>
+        <option value="Rom Fiumicino">Rom Fiumicino</option>
+        <option value="Venedig Marco Polo">Venedig Marco Polo</option>
+      </optgroup>
+      <optgroup label="Frankreich">
+        <option value="Paris Charles de Gaulle">Paris Charles de Gaulle</option>
+        <option value="Nizza">Nizza</option>
+        <option value="Lyon">Lyon</option>
+      </optgroup>
+    </select><br>
 
+    <label for="start-date">Anfangsdatum des Reisezeitraums:</label>
+    <input type="date" id="start-date" name="startDate" required><br>
+
+    <label for="end-date">Enddatum des Reisezeitraums:</label>
+    <input type="date" id="end-date" name="endDate" required><br>
+
+    <label for="trip-duration">Dauer der Reise (in Tagen, zwischen 1 und 21):</label>
+    <input type="number" id="trip-duration" name="tripDuration" min="1" max="21" required><br>
+
+    <label for="number-of-travelers">Anzahl der reisenden Personen:</label>
+    <input type="number" id="number-of-travelers" name="number-of-travelers" min="1" required><br>
+
+    <label for="preferred-airline">Bevorzugte Fluggesellschaft:</label>
+    <select id="preferred-airline" name="preferred-airline">
+      <option value="Lufthansa">Lufthansa</option>
+      <option value="Swiss International Air Lines">Swiss International Air Lines</option>
+      <option value="Emirates">Emirates</option>
+    </select><br>
+  </fieldset>
+
+  <fieldset>
+    <legend>Unterkunft und Zusatzleistungen</legend>
+    <label>Art der Unterkunft:</label><br>
+    <input type="radio" id="hotel" name="accommodationType" value="Hotel">
+    <label for="hotel">Hotel</label><br>
+    <input type="radio" id="apartment" name="accommodationType" value="Ferienwohnung">
+    <label for="apartment">Ferienwohnung</label><br>
+    <input type="radio" id="hostel" name="accommodationType" value="Hostel">
+    <label for="hostel">Hostel</label><br>
+
+    <label>Zusätzliche Dienstleistungen:</label><br>
+    <input type="checkbox" id="insurance" name="additional-service" value="Reiseversicherung">
+    <label for="insurance">Reiseversicherung</label><br>
+    <input type="checkbox" id="transfer" name="additional-service" value="Flughafentransfer">
+    <label for="transfer">Flughafentransfer</label><br>
+    <input type="checkbox" id="luggage" name="additional-service" value="Zusätzliches Gepäck">
+    <label for="luggage">Zusätzliches Gepäck</label><br>
+  </fieldset>
+
+  <fieldset>
+    <legend>Weitere Informationen</legend>
+    <label for="destination">Reiseziel:</label>
+    <input list="destinations" id="destination" name="destination">
+    <datalist id="destinations">
+      <option value="Paris, Frankreich"></option>
+      <option value="Rom, Italien"></option>
+      <option value="New York City, USA"></option>
+    </datalist><br>
+
+    <label for="email">E-Mail-Adresse:</label>
+    <input type="email" id="email" name="email" required><br>
+  </fieldset>
+
+  <input type="reset" value="Zurücksetzen">
+  <input type="submit" value="Absenden">
+</form>
 
 </body>
 </html>
